@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: infrastructure/Dockerfile
+    volumes:
+      - .:/app
+    working_dir: /app
+    entrypoint: "/bin/bash /app/infrastructure/entrypoint.sh"
+    ports:
+      - "9000:9000"
